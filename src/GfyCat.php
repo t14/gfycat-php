@@ -63,7 +63,7 @@ abstract class GfyCat
     }
 
     /**
-     * Wrapper methid for rename().
+     * Wrapper method for rename().
      *
      * @param $fileDir
      * @param $fileName

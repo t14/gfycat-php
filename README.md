@@ -78,3 +78,24 @@ $gc->createGfycat($dir, $file, $params, $credentials['access_token']);
 $gcInfo = $gc->getGfyCat($gfyID);
 
 ```
+
+## Refresh auth token
+If you would like to refresh the oauth token. Call the auth method and pass in the refresh token (from where ever you
+might have stored it when you first called the auth method) as a part of the config param and change the grant type to
+refresh.
+
+
+```php
+
+$config = [
+    'refresh_token' => 'YOUR REFRESH TOKEN HERE',
+    'client_id' => 'YOUR_CLIENT_ID_HERE',
+    'client_secret' => 'YOUR_CLIENT_SECRET_HERE',
+    'grant_type' => 'refresh',
+];
+
+$gc->auth($config);
+//returns array containing access_token, refresh_token_expires_in, refresh_token, expires_in, access_token
+$credentials = $gc->auth($config);
+
+```

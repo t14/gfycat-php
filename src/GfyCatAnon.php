@@ -21,18 +21,15 @@ class GfyCatAnon extends GfyCat
      */
     public function createGfycat($fileDir, $fileName, array $params)
     {
-        $gfyID = null;
-        $gfyName = $this->getFileKey($params)['gfyname'];
-        $gfy = $this->prepFile($gfyName, $fileDir, $fileName);
-        $response = $this->fileDrop($gfy, $gfyName);
-
-        if ($response->getStatusCode() == '200') {
-            // returns gfy id.
-            return $gfyName;
+        try {
+            $gfyName = $this->getFileKey($params)['gfyname'];
+            $gfy = $this->prepFile($gfyName, $fileDir, $fileName);
+            $response = $this->fileDrop($gfy, $gfyName);
+        } catch (ClientException $e) {
+            return $e->getResponse()->getStatusCode();
         }
-        // can be used to get status code and other info to see why it failed
+
         return $response->getStatusCode();
-        //return $response;
     }
 
     /**

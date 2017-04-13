@@ -66,7 +66,7 @@ class GfyCatAuth extends GfyCat
      *
      * @param $config
      * @return int|mixed $authinfo on success array containing access_token, refresh_token_expires_in, refresh_token,
-     *                             expires_in access_token. HTTP response code on failure.
+     * expires_in access_token. HTTP response code on failure.
      */
     public function auth($config)
     {
@@ -83,9 +83,6 @@ class GfyCatAuth extends GfyCat
         return $this->authInfo;
     }
 
-    public function refreshToken()
-    {
-    }
 
     /**
      * Updates a gfycat belonging to authenticated users.
