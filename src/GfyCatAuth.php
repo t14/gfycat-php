@@ -1,7 +1,7 @@
 <?php
-namespace t14\gfycat;
+namespace bbcworldwide\gfycat;
 
-use t14\gfycat\GfyCat;
+use bbcworldwide\gfycat\GfyCat;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 

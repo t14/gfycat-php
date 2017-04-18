@@ -1,5 +1,5 @@
 {
-    "name": "t14/gfycat-php",
+    "name": "bbcworldwide/gfycat-php",
     "description": "PHP client library for gfycat",
     "type": "library",
     "license": "MIT",
@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "t14\\gfycat\\": "src"
+            "bbcworldwide\\gfycat\\": "src"
         }
     },
     "autoload-dev": {

@@ -1,5 +1,5 @@
 <?php
-namespace t14\gfycat;
+namespace bbcworldwide\gfycat;
 
 use GuzzleHttp\Client;
 
