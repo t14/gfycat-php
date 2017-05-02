@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "t14\\gfycat\\Test\\": "tests"
+            "bbcworldwide\\gfycat\\Test\\": "tests"
         }
     }
 }

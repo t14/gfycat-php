@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\ClientException;
 /**
  * Class GfyCatAnon
  * Supports all actions that can be done without authentication.
- * @package t14\gfycat
+ * @package bbcworldwide\gfycat
  */
 class GfyCatAnon extends GfyCat
 {

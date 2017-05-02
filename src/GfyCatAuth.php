@@ -9,7 +9,7 @@ use GuzzleHttp\Exception\ClientException;
  * Class GfyCatAuth
  * Supports all actions that require authentication.
  * 
- * @package t14\gfycat
+ * @package bbcworldwide\gfycat
  */
 class GfyCatAuth extends GfyCat
 {
@@ -66,7 +66,7 @@ class GfyCatAuth extends GfyCat
      *
      * @param $config
      * @return int|mixed $authinfo on success array containing access_token, refresh_token_expires_in, refresh_token,
-     *                             expires_in access_token. HTTP response code on failure.
+     * expires_in access_token. HTTP response code on failure.
      */
     public function auth($config)
     {

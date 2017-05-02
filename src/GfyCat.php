@@ -5,7 +5,7 @@ use GuzzleHttp\Client;
 
 /**
  * Class GfyCat
- * @package t14\gfycat
+ * @package bbcworldwide\gfycat
  */
 abstract class GfyCat
 {
