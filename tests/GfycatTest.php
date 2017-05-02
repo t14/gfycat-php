@@ -1,8 +1,8 @@
 <?php
-namespace t14\gfycat\Test;
+namespace bbcworldwide\gfycat\Test;
 
-use t14\gfycat\GfyCatAuth;
-use t14\gfycat\GfyCatAnon;
+use bbcworldwide\gfycat\GfyCatAuth;
+use bbcworldwide\gfycat\GfyCatAnon;
 
 class GfycatTest extends \PHPUnit_Framework_TestCase {
 
@@ -23,33 +23,33 @@ class GfycatTest extends \PHPUnit_Framework_TestCase {
     
     public function testBaseUrl()
     {
-        $ReflectObject = new \ReflectionClass('t14\gfycat\GfyCatAuth');
+        $ReflectObject = new \ReflectionClass('bbcworldwide\gfycat\GfyCatAuth');
         $this->assertEquals('https://api.gfycat.com', $ReflectObject->getConstant('BASE_URL'));
 
-        $ReflectObject = new \ReflectionClass('t14\gfycat\GfyCatAnon');
+        $ReflectObject = new \ReflectionClass('bbcworldwide\gfycat\GfyCatAnon');
         $this->assertEquals('https://api.gfycat.com', $ReflectObject->getConstant('BASE_URL'));
 
     }
 
     public function testTokenUri()
     {
-        $ReflectObject = new \ReflectionClass('t14\gfycat\GfyCatAuth');
+        $ReflectObject = new \ReflectionClass('bbcworldwide\gfycat\GfyCatAuth');
         $this->assertEquals('/v1/oauth/token', $ReflectObject->getConstant('TOKEN_URI'));
 
     }
 
     public function testUpdateUri()
     {
-        $ReflectObject = new \ReflectionClass('t14\gfycat\GfyCatAuth');
+        $ReflectObject = new \ReflectionClass('bbcworldwide\gfycat\GfyCatAuth');
         $this->assertEquals('/v1/me/gfycats/', $ReflectObject->getConstant('UPDATE_URI'));
     }
 
     public function testUri()
     {
-        $ReflectObject = new \ReflectionClass('t14\gfycat\GfyCatAuth');
+        $ReflectObject = new \ReflectionClass('bbcworldwide\gfycat\GfyCatAuth');
         $this->assertEquals('/v1/gfycats/', $ReflectObject->getConstant('URI'));
 
-        $ReflectObject = new \ReflectionClass('t14\gfycat\GfyCatAnon');
+        $ReflectObject = new \ReflectionClass('bbcworldwide\gfycat\GfyCatAnon');
         $this->assertEquals('/v1/gfycats/', $ReflectObject->getConstant('URI'));
     }
 
@@ -74,11 +74,11 @@ class GfycatTest extends \PHPUnit_Framework_TestCase {
 
     public function testGettingTheGetUrl()
     {
-        $reflectionMethod = new \ReflectionMethod('t14\gfycat\GfyCatAuth', 'getGetUrl');
+        $reflectionMethod = new \ReflectionMethod('bbcworldwide\gfycat\GfyCatAuth', 'getGetUrl');
         $url = $reflectionMethod->invoke(new GfyCatAuth(), 'myGfycat');
         $this->assertEquals('https://api.gfycat.com/v1/gfycats/myGfycat', $url);
 
-        $reflectionMethod = new \ReflectionMethod('t14\gfycat\GfyCatAnon', 'getGetUrl');
+        $reflectionMethod = new \ReflectionMethod('bbcworldwide\gfycat\GfyCatAnon', 'getGetUrl');
         $url = $reflectionMethod->invoke(new GfyCatAnon(), 'myGfycat');
         $this->assertEquals('https://api.gfycat.com/v1/gfycats/myGfycat', $url);
     }
