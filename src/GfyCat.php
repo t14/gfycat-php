@@ -49,13 +49,13 @@ abstract class GfyCat
      * @param $gfyFile
      * @param $gfyName
      * @return string HTTP response code
+     * @see https://developers.gfycat.com/api/#errors
      */
     public function fileDrop($gfyFile, $gfyName)
     {
         try {
             $client = new Client(['base_url' => 'http://filedrop.gfycat.com/']);
-            $uri = '/'. $gfyName;
-            $response = $client->put($uri, ['body' => fopen($gfyFile, 'r')]);
+            $response = $client->put('/'. $gfyName, ['body' => fopen($gfyFile, 'r')]);
             return $response->getStatusCode();
         } catch (ClientException $e) {
             return $e->getResponse()->getStatusCode();
@@ -63,22 +63,22 @@ abstract class GfyCat
     }
 
     /**
-     * Wrapper methid for rename().
+     * Wrapper meth0d for rename().
      *
      * @param $fileDir
      * @param $fileName
-     * @param $new_file_name
+     * @param $newFileName
      */
-    private function rename($fileDir, $fileName, $new_file_name)
+    private function rename($fileDir, $fileName, $newFileName)
     {
-        rename($fileDir . '/' . $fileName, $new_file_name);
+        rename($fileDir . '/' . $fileName, $newFileName);
     }
 
     /**
      * Url for getting Gyfcat.
      *
      * @param $gfyID
-     * @return string
+     * @return string A url string.
      */
     public function getGetUrl($gfyID)
     {

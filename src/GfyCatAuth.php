@@ -23,9 +23,10 @@ class GfyCatAuth extends GfyCat
      *
      * @param $fileDir
      * @param $fileName
-     * @param array $params
-     * @param null $token
+     * @param array $params parameters for creating a gfycat.
+     * @param null|string $token oauth2 token.
      * @return int HTTP response code on failure and gfycat ID if successful.
+     * @see https://developers.gfycat.com/api/#errors
      */
     public function createGfycat($fileDir, $fileName, array $params, $token = null)
     {
@@ -45,9 +46,10 @@ class GfyCatAuth extends GfyCat
      * Gets the file needed for creating a new gfycat.
      * Uses an oauth2 token so that the file will be associated with a personal user library.
      *
-     * @param null $params
-     * @param null $token
+     * @param null $params parameters for creating a gfycat.
+     * @param null $token oauth2 token.
      * @return int|mixed file key on success and http reposnse on faliure.
+     * @see https://developers.gfycat.com/api/#errors
      */
     public function getFileKey($params = null, $token = null)
     {
@@ -83,18 +85,15 @@ class GfyCatAuth extends GfyCat
         return $this->authInfo;
     }
 
-    public function refreshToken()
-    {
-    }
-
     /**
      * Updates a gfycat belonging to authenticated users.
      *
-     * @param $token
-     * @param $gfyid
-     * @param $item
-     * @param $value
+     * @param $token auth token
+     * @param $gfyid id of gycat that needs updating.
+     * @param $item part of the gfy that should be updated e.g title.
+     * @param $value value that should be used to update the item.
      * @return int http response code.
+     * @see https://developers.gfycat.com/api/#errors
      */
     public function update($token, $gfyid, $item, $value)
     {
@@ -111,11 +110,11 @@ class GfyCatAuth extends GfyCat
 
 
     /**
-     *  Returns the update URL.
+     * Returns the update URL.
      *
-     * @param $gfyid
-     * @param $item
-     * @return string
+     * @param $gfyid id of gycat.
+     * @param $item part of the gfy that should be updated e.g title.
+     * @return string a url string.
      */
     public function getUpdateUrl($gfyid, $item)
     {
@@ -126,7 +125,7 @@ class GfyCatAuth extends GfyCat
      * Creates the array needed to update gfycat properties.
      *
      * @param $property This could be title, description, published and tags
-     * @param $value
+     * @param $value value of update.
      * @return array|string
      */
     public function setUpdateValues($property, $value)
@@ -149,11 +148,12 @@ class GfyCatAuth extends GfyCat
 
     /**
      * Gets meta data about a gyfcat.
-     * Uses oauth token so that a gfycat metadat belonging to the autorised user can be fetched.
+     * Uses oauth token so that a gfycat metadata belonging to the autorised user can be fetched.
      *
      * @param $gfyID
-     * @param null $token
-     * @return array|string
+     * @param null|string $token
+     * @return int HTTP response code on failure and gfycat ID if successful.
+     * @see https://developers.gfycat.com/api/#errors
      */
     public function getGfyCat($gfyID, $token = null)
     {

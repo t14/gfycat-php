@@ -17,8 +17,9 @@ class GfyCatAnon extends GfyCat
      *
      * @param $fileDir
      * @param $fileName
-     * @param array $params
+     * @param array $params parameters for creating a gfycat.
      * @return int HTTP response code on failure and gfycat ID if successful.
+     * @see https://developers.gfycat.com/api/#errors
      */
     public function createGfycat($fileDir, $fileName, array $params)
     {
@@ -37,8 +38,9 @@ class GfyCatAnon extends GfyCat
     /**
      * Gets the file needed for creating a new gfycat.
      *
-     * @param null $params
-     * @return int|mixed file key on success and http reposnse on faliure.
+     * @param null|array $params parameters for creating a gfycat.
+     * @return int|mixed file key on success and http response on failure.
+     * @see https://developers.gfycat.com/api/#errors
      */
     public function getFileKey($params = null)
     {
