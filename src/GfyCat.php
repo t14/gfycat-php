@@ -80,7 +80,7 @@ abstract class GfyCat
      * @param $gfyID
      * @return string A url string.
      */
-    public function getGetUrl($gfyID)
+    public function getUrl($gfyID)
     {
         return self::BASE_URL . self::URI. $gfyID;
     }

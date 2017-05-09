@@ -159,7 +159,7 @@ class GfyCatAuth extends GfyCat
     {
         try {
             $client = $this->client($token);
-            $gfycatInfo = $client->get($this->getGetUrl($gfyID))->json();
+            $gfycatInfo = $client->get($this->getUrl($gfyID))->json();
         } catch (ClientException $e) {
             return $e->getResponse()->getStatusCode();
         }

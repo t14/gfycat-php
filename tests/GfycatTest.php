@@ -74,11 +74,11 @@ class GfycatTest extends \PHPUnit_Framework_TestCase {
 
     public function testGettingTheGetUrl()
     {
-        $reflectionMethod = new \ReflectionMethod('bbcworldwide\gfycat\GfyCatAuth', 'getGetUrl');
+        $reflectionMethod = new \ReflectionMethod('bbcworldwide\gfycat\GfyCatAuth', 'getUrl');
         $url = $reflectionMethod->invoke(new GfyCatAuth(), 'myGfycat');
         $this->assertEquals('https://api.gfycat.com/v1/gfycats/myGfycat', $url);
 
-        $reflectionMethod = new \ReflectionMethod('bbcworldwide\gfycat\GfyCatAnon', 'getGetUrl');
+        $reflectionMethod = new \ReflectionMethod('bbcworldwide\gfycat\GfyCatAnon', 'getUrl');
         $url = $reflectionMethod->invoke(new GfyCatAnon(), 'myGfycat');
         $this->assertEquals('https://api.gfycat.com/v1/gfycats/myGfycat', $url);
     }

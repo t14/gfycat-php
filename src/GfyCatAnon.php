@@ -59,7 +59,7 @@ class GfyCatAnon extends GfyCat
     {
         try{
             $client = new Client(['base_url' => self::BASE_URL]);
-            $response = $client->get($this->getGetUrl($gfyID));
+            $response = $client->get($this->getUrl($gfyID));
         } catch (ClientException $e) {
             return $e->getResponse()->getStatusCode();
         }
