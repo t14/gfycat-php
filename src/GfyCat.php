@@ -32,7 +32,7 @@ abstract class GfyCat
     }
 
     /**
-     * Creates a new file path
+     * Creates a new file path.
      *
      * @param $fileDir
      * @param $gfyName
@@ -63,7 +63,7 @@ abstract class GfyCat
     }
 
     /**
-     * Wrapper meth0d for rename().
+     * Wrapper method for rename().
      *
      * @param $fileDir
      * @param $fileName

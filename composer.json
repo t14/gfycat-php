@@ -2,7 +2,7 @@
     "name": "bbcworldwide/gfycat-php",
     "description": "PHP client library for gfycat",
     "type": "library",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "require": {
         "guzzlehttp/guzzle": "~5.0"
     },
