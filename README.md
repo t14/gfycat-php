@@ -20,7 +20,7 @@ $dir = 'dir/name/';
 // name of file
 $file = 'file.gif';
 
-// full list of optional parameters available [here] (https://developers.gfycat.com/api/#gfycat-creation-parameters-and-options)
+// full list of optional parameters available [here](https://developers.gfycat.com/api/#gfycat-creation-parameters-and-options)
 $params = [
     'title' => 'Still struggling with Haskell',
     'noMd5' => 'true',
