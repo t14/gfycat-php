@@ -44,8 +44,9 @@ class GfyCatAnon extends GfyCat
      */
     public function getFileKey($params = null)
     {
-        $client = new Client(['base_url' => self::BASE_URL]);
-        return $client->post(self::URI, ['json' => $params,])->json();
+        $client = new Client();
+        $response = $client->post(self::BASE_URL . '' . self::URI, ['json' => $params,]);
+        return json_decode($response->getBody());
     }
 
     /**
@@ -58,8 +59,8 @@ class GfyCatAnon extends GfyCat
     public function getGfyCat($gfyID)
     {
         try{
-            $client = new Client(['base_url' => self::BASE_URL]);
-            $response = $client->get($this->getUrl($gfyID));
+            $client = new Client();
+            $response = $client->get(self::BASE_URL . '' . $this->getUrl($gfyID));
         } catch (ClientException $e) {
             return $e->getResponse()->getStatusCode();
         }

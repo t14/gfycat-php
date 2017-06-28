@@ -55,7 +55,8 @@ class GfyCatAuth extends GfyCat
     {
         try {
             $client = $this->client($token);
-            $fileKey =  $client->post(self::BASE_URL . self::URI, ['json' => $params,])->json();
+            $response = $client->post(self::BASE_URL . self::URI, ['json' => $params,]);
+            $fileKey = json_decode($response->getBody());
         } catch (ClientException $e) {
             return $e->getResponse()->getStatusCode();
         }
@@ -74,7 +75,7 @@ class GfyCatAuth extends GfyCat
     {
         try {
             $oauth2Client = new Client();
-            $response = $oauth2Client->post(self::BASE_URL .'/'.self::TOKEN_URI, [
+            $response = $oauth2Client->post(self::BASE_URL . '' . self::TOKEN_URI, [
               'json' => $config
             ]);
             $this->authInfo = json_decode($response->getBody());
@@ -107,7 +108,6 @@ class GfyCatAuth extends GfyCat
 
         return $response->getStatusCode();
     }
-
 
     /**
      * Returns the update URL.
@@ -159,7 +159,7 @@ class GfyCatAuth extends GfyCat
     {
         try {
             $client = $this->client($token);
-            $gfycatInfo = $client->get($this->getUrl($gfyID))->json();
+            $gfycatInfo = $client->get(json_decode($this->getUrl($gfyID)));
         } catch (ClientException $e) {
             return $e->getResponse()->getStatusCode();
         }
