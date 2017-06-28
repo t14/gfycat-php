@@ -77,7 +77,7 @@ class GfyCatAuth extends GfyCat
             $response = $oauth2Client->post(self::BASE_URL .'/'.self::TOKEN_URI, [
               'json' => $config
             ]);
-            $this->authInfo = $response->json();
+            $this->authInfo = json_decode($response->getBody());
         } catch (ClientException $e) {
             $response = $e->getResponse();
             return $response->getStatusCode();
