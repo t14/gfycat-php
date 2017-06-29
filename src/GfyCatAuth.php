@@ -31,7 +31,7 @@ class GfyCatAuth extends GfyCat
     public function createGfycat($fileDir, $fileName, array $params, $token = null)
     {
         try {
-            $gfyName = $this->getFileKey($params, $token)['gfyname'];
+            $gfyName = $this->getFileKey($params, $token)->gfyname;
             $gfy = $this->prepFile($gfyName, $fileDir, $fileName);
             $this->fileDrop($gfy, $gfyName);
         } catch (ClientException $e) {
@@ -55,7 +55,8 @@ class GfyCatAuth extends GfyCat
     {
         try {
             $client = $this->client($token);
-            $fileKey =  $client->post(self::BASE_URL . self::URI, ['json' => $params,])->json();
+            $response = $client->post(self::BASE_URL . self::URI, ['json' => $params,]);
+            $fileKey = json_decode($response->getBody());
         } catch (ClientException $e) {
             return $e->getResponse()->getStatusCode();
         }
@@ -73,11 +74,11 @@ class GfyCatAuth extends GfyCat
     public function auth($config)
     {
         try {
-            $oauth2Client = new Client(['base_url' => self::BASE_URL]);
-            $response = $oauth2Client->post(self::TOKEN_URI, [
-                'json' => $config
+            $oauth2Client = new Client();
+            $response = $oauth2Client->post(self::BASE_URL . '' . self::TOKEN_URI, [
+              'json' => $config
             ]);
-            $this->authInfo = $response->json();
+            $this->authInfo = json_decode($response->getBody());
         } catch (ClientException $e) {
             $response = $e->getResponse();
             return $response->getStatusCode();
@@ -107,7 +108,6 @@ class GfyCatAuth extends GfyCat
 
         return $response->getStatusCode();
     }
-
 
     /**
      * Returns the update URL.
@@ -159,7 +159,7 @@ class GfyCatAuth extends GfyCat
     {
         try {
             $client = $this->client($token);
-            $gfycatInfo = $client->get($this->getUrl($gfyID))->json();
+            $gfycatInfo = $client->get($this->getUrl($gfyID));
         } catch (ClientException $e) {
             return $e->getResponse()->getStatusCode();
         }

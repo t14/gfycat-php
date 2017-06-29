@@ -54,8 +54,8 @@ abstract class GfyCat
     public function fileDrop($gfyFile, $gfyName)
     {
         try {
-            $client = new Client(['base_url' => 'http://filedrop.gfycat.com/']);
-            $response = $client->put('/'. $gfyName, ['body' => fopen($gfyFile, 'r')]);
+            $client = new Client();
+            $response = $client->put('http://filedrop.gfycat.com/'. $gfyName, ['body' => fopen($gfyFile, 'r')]);
             return $response->getStatusCode();
         } catch (ClientException $e) {
             return $e->getResponse()->getStatusCode();
