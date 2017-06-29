@@ -31,7 +31,7 @@ class GfyCatAuth extends GfyCat
     public function createGfycat($fileDir, $fileName, array $params, $token = null)
     {
         try {
-            $gfyName = $this->getFileKey($params, $token)['gfyname'];
+            $gfyName = $this->getFileKey($params, $token)->gfyname;
             $gfy = $this->prepFile($gfyName, $fileDir, $fileName);
             $this->fileDrop($gfy, $gfyName);
         } catch (ClientException $e) {
@@ -159,7 +159,7 @@ class GfyCatAuth extends GfyCat
     {
         try {
             $client = $this->client($token);
-            $gfycatInfo = $client->get(json_decode($this->getUrl($gfyID)));
+            $gfycatInfo = $client->get($this->getUrl($gfyID));
         } catch (ClientException $e) {
             return $e->getResponse()->getStatusCode();
         }
